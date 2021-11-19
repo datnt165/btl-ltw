@@ -1,0 +1,84 @@
+.share {
+  position: absolute;
+  bottom: 40px;
+  left: 40px;
+  z-index: 2;
+  -webkit-animation: fadeInUp 0.4s 0.8s ease-in-out both 300ms 0 ease;
+  -moz-animation: fadeInUp 0.4s 0.8s ease-in-out both 300ms 0 ease;
+  -ms-animation: fadeInUp 0.4s 0.8s ease-in-out both 300ms 0 ease;
+  animation: fadeInUp 0.4s 0.8s ease-in-out both 300ms 0 ease;
+  -o-animation: fadeInUp 0.4s 0.8s ease-in-out both;
+  -webkit-animation: fadeInUp 0.4s 0.8s ease-in-out both;
+  -moz-animation: fadeInUp 0.4s 0.8s ease-in-out both;
+  -ms-animation: fadeInUp 0.4s 0.8s ease-in-out both;
+  animation: fadeInUp 0.4s 0.8s ease-in-out both;
+}
+.share a {
+  width: 40 px;
+  height: 40 px;
+  float: left;
+  background: url(logo.png);
+}
+.top-left {
+  position: absolute;
+  top: 43%;
+  left: 19%;
+}
+header {
+  position: relative;
+  background-color: #000;
+  height: 50vh;
+  min-height: 25rem;
+  width: 100%;
+  overflow: hidden;
+}
+header.halfhead {
+  padding-top: 10rem;
+  padding-bottom: calc(10rem - 72px);
+  height: 50%;
+  background-position: 50%;
+  background-repeat: no-repeat;
+  background-size: cover;
+  position: relative;
+}
+header.halfhead .hero-text {
+  text-align: center;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: #fff;
+  letter-spacing: 7px;
+}
+#popu-news {
+  border-radius: 10px;
+  background: #f5df87;
+  padding: 10px;
+}
+hr {
+  height: 2px;
+  border-width: 0;
+  color: gray;
+  background-color: gray;
+}
+img.thumb {
+  border-radius: 10px;
+}
+p.time {
+  color: #227efa;
+  font-size: 12px;
+}
+h5.news-title {
+  color: #0047fa;
+  font-weight: 900;
+}
+h6.watch-now {
+  color: #0006fa;
+  font-weight: 700;
+  margin-top: 25px;
+}
+div.new {
+  border-bottom: 2px black dotted;
+  padding-top: 5%;
+  padding-bottom: 5%;
+}

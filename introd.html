@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css" />
+    <link
+      rel="stylesheet"
+      href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://unpkg.com/swiper/swiper-bundle.min.css"
+    />
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta2/css/all.min.css"
+      rel="stylesheet"
+    />
+    <script
+      src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+      integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+      crossorigin="anonymous"
+    ></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+      integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+      integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+      crossorigin="anonymous"
+    ></script>
+    
+  </head>
+  <body>
+    <div id="nav-placeholder"></div>
+    <div id="header"></div>
+    <section class="py-5">
+      <div class="container">
+        <div class="row py-5">
+          <div class="col-md-6 col-6 text-center">
+            <h3>
+              <span style="color: #f39c12"
+                >Xin chào đến với <strong>Bookee</strong></span
+              >
+            </h3>
+            <p>&nbsp;</p>
+            <p>
+              Xin chào và chào mừng bạn đến với <strong>Bookee</strong>, ở đây
+              bạn có thể tìm được nhiều loại <strong>sách</strong> cho mọi sở
+              thích và lĩnh vực. Chúng tôi kiểm tra kỹ lưỡng chất lượng hàng hóa
+              của mình, chỉ làm việc với các nhà cung cấp đáng tin cậy để bạn
+              chỉ nhận được sản phẩm chất lượng tốt nhất và luôn đảm bảo cung
+              cấp sách có bản quyền tác giả.
+            </p>
+          </div>
+          <div class="col-md-6 col-6 pt-4">
+            <img
+              src="https://muahanggiasi.com/wp-content/uploads/2021/10/bookstore.jpg"
+              class="d-block w-75"
+              style="
+                display: block;
+                margin-left: auto;
+                margin-right: auto;
+                width: 100%;
+              "
+              alt=""
+            />
+          </div>
+        </div>
+        <div class="row py-5">
+          <div class="col-md-6 col-6">
+            <img
+              src="mission.jpg"
+              alt=""
+              class="d-block w-75"
+              style="
+                display: block;
+                margin-left: auto;
+                margin-right: auto;
+                width: 100%;
+              "
+            />
+          </div>
+          <div class="col-md-6 col-6 text-center">
+            <h3 style="color: #f39c12">Sứ mệnh</h3>
+            <p>
+              Chúng tôi tại <strong>Bookee</strong> tin tưởng vào chất lượng cao
+              và dịch vụ khách hàng đặc biệt. Nhưng quan trọng nhất, chúng tôi
+              tin rằng mua sắm là quyền lợi chứ không phải xa xỉ phẩm, vì vậy
+              chúng tôi cố gắng cung cấp những sản phẩm tốt nhất với giá cả phải
+              chăng nhất và giao hàng cho bạn bất kể bạn ở đâu.
+            </p>
+          </div>
+        </div>
+        <div class="row py-5">
+          <div class="col-md-6 col-6 text-center">
+            <h3 style="color: #f39c12">Nhân viên</h3>
+            <p>
+              Hiện tại <strong>Bookee</strong> chỉ có 4 thành viên, tuy nhiên 
+              chúng tôi luôn dành sự quan tâm sâu sắc với công việc đang làm. 
+              Chúng tôi sẽ không ngừng học hỏi những kĩ thuật, công nghệ được
+               phát triển, thay đổi theo thời gian và tìm cách ứng dụng vào việc cung cấp dịch vụ sách nói riêng và lập trình web nói chung.
+            </p>
+          </div>
+          <div class="col-md-6 col-6">
+            <img
+              src="member.png"
+              alt=""
+              class="d-block w-50"
+              style="
+                display: block;
+                margin-left: auto;
+                margin-right: auto;
+                width: 100%;
+              "
+            />
+          </div>
+        </div>
+        </div>
+      </div>
+    </section>
+
+    <div id="footer"></div>
+    <script>
+      $(document).ready(function () {
+        //load and change active navbar
+        $("#nav-placeholder").load("nav.html", function(){
+          $(".nav-link").each(function () {
+          if ($(this).html() == "Giới thiệu") $(this).addClass("active");
+          else $(this).removeClass("active");
+          });
+        });
+        //load header
+        $("#header").load("header.html", function () {
+          $("#header-title").html("Giới thiệu");
+        });
+        //load footer
+        $("#footer").load("footer.html");
+      });
+    </script>
+  </body>
+</html>
