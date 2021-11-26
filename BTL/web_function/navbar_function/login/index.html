@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css"
+      rel="stylesheet"
+      id="bootstrap-css"
+    />
+    <link rel="stylesheet" href="style.css" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+    <title>phan1_bai6</title>
+  </head>
+
+  <body>
+    <?php
+  include 'conn.php';
+  ?>
+    <div class="container register">
+      <div class="row">
+        <div class="col-md-3 register-left">
+          <img src="https://image.ibb.co/n7oTvU/logo_white.png" alt="" />
+          <h3>Welcome</h3>
+        </div>
+        <div class="col-md-9 register-right">
+          <h3 class="register-heading">Đăng nhập</h3>
+          <form method="" action="">
+            <div class="register-form">
+              <div class="row">
+                <div class="col-md-12">
+                  <div class="form-group">
+                    <input
+                      type="text"
+                      class="form-control"
+                      placeholder="Email"
+                      id="email"
+                      value=""
+                    />
+                  </div>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-md-12">
+                  <div class="form-group">
+                    <input
+                      type="password"
+                      class="form-control"
+                      placeholder="Mật khẩu"
+                      id="password"
+                      value=""
+                    />
+                  </div>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-md-12">
+                  <div class="form-group">
+                    <select class="form-control" id="roll">
+                      <option value="" class="hidden" selected>Login as</option>
+                      <option value="Khách hàng">Khách hàng</option>
+                      <option value="Admin">Admin</option>
+                    </select>
+                  </div>
+                </div>
+              </div>
+              <div class="error" id="error"></div>
+              <div class="row justify-content-right">
+                <div class="col-md-12">
+                  <button
+                    type="button"
+                    class="btn btn-primary"
+                    name="submit"
+                    id="submit"
+                  >
+                    Đăng nhập
+                  </button>
+                </div>
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+    <script>
+      function setCookie(cname, cvalue, exdays) {
+        const d = new Date();
+        d.setTime(d.getTime() + exdays * 24 * 60 * 60 * 1000);
+        let expires = "expires=" + d.toUTCString();
+        document.cookie = cname + "=" + cvalue + ";" + expires + ";path=/";
+      }
+
+      function getCookie(cname) {
+        let name = cname + "=";
+        let ca = document.cookie.split(";");
+        for (let i = 0; i < ca.length; i++) {
+          let c = ca[i];
+          while (c.charAt(0) == " ") {
+            c = c.substring(1);
+          }
+          if (c.indexOf(name) == 0) {
+            return c.substring(name.length, c.length);
+          }
+        }
+        return "";
+      }
+
+      $(document).ready(function () {
+        $("#submit").on("click", function () {
+          var email = $("#email").val();
+          var password = $("#password").val();
+          var roll = $("#roll").val();
+          if (!email || !password || !roll) {
+            $("#error").text(
+              '* Hãy nhập tài khoản mật khẩu và chọn "Login as" phù hợp!'
+            );
+          } else {
+            $.get(
+              "check.php",
+              {
+                email: email,
+                password: password,
+                roll: roll,
+              },
+              function (data) {
+                if (data) {
+                  $("#error").text(data);
+                } else {
+                  setCookie("email", email, 1);
+                  if (roll == "Admin") {
+                    if (confirm("Đăng nhập thành công! Về trang Admin:"))
+                      window.history.back();
+                  } else if (confirm("Đăng nhập thành công! Về trang chủ:"))
+                    window.history.back();
+                }
+              }
+            );
+          }
+        });
+      });
+    </script>
+  </body>
+</html>

@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>phan2_bai2</title>
+    <link rel="stylesheet" href="style.css" />
+    <link
+      href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css"
+      rel="stylesheet"
+      id="bootstrap-css"
+    />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  </head>
+
+  <body>
+    <div class="container back-ground">
+      <div class="row">
+        <div class="col-md-4 col-4">
+          <button type="button" class="btn btn-primary btn-block" id="back">
+            Quay lại trang chủ
+          </button>
+        </div>
+      </div>
+      <div class="head">
+        <h1>Các tác vụ chính</h1>
+      </div>
+      <div class="row py-4 justify-content-center">
+        <div class="col-md-4 col-12">
+          <button type="button" class="btn btn-primary btn-block" id="member">
+            Quản lý thành viên
+          </button>
+        </div>
+        <div class="col-md-4 col-12">
+          <button type="button" class="btn btn-primary btn-block" id="comment">
+            Quản lý bình luận đánh giá
+          </button>
+        </div>
+      </div>
+      <div class="row py-4 justify-content-center">
+        <div class="col-md-4 col-12">
+          <button type="button" class="btn btn-primary btn-block" id="book">
+            Quản lý sản phẩm
+          </button>
+        </div>
+        <div class="col-md-4 col-12">
+          <button type="button" class="btn btn-primary btn-block" id="news">
+            Quản lý tin tức
+          </button>
+        </div>
+      </div>
+      <div class="row py-4 justify-content-center">
+        <div class="col-md-4 col-12">
+          <button type="button" class="btn btn-primary btn-block" id="contact">
+            Quản lý thông tin liên hệ
+          </button>
+        </div>
+        <div class="col-md-4 col-12">
+          <button type="button" class="btn btn-primary btn-block" id="customer">
+            Thông tin khách hàng tiềm năng
+          </button>
+        </div>
+      </div>
+    </div>
+    <script>
+      $("#back").on("click", function () {
+        window.location.href = "http://localhost/BTL/";
+      });
+      $("#member").on("click", function () {
+        window.location.href = "http://localhost/BTL/people/admin/member/";
+      });
+      $("#comment").on("click", function () {
+        window.location.href = "http://localhost/BTL/people/admin/comment/";
+      });
+      $("#book").on("click", function () {
+        window.location.href = "http://localhost/BTL/people/admin/book/";
+      });
+      $("#news").on("click", function () {
+        window.location.href = "http://localhost/BTL/people/admin/news/";
+      });
+      $("#contact").on("click", function () {
+        window.location.href = "http://localhost/BTL/people/admin/contact/";
+      });
+      $("#customer").on("click", function () {
+        window.location.href = "http://localhost/BTL/people/admin/customer/";
+      });
+    </script>
+  </body>
+</html>

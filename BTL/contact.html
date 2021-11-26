@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="./style.css" />
+    <link
+      rel="stylesheet"
+      href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://unpkg.com/swiper/swiper-bundle.min.css"
+    />
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta2/css/all.min.css"
+      rel="stylesheet"
+    />
+
+    <script
+      src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+      integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+      integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+      crossorigin="anonymous"
+    ></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script
+      src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+      integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+      crossorigin="anonymous"
+    ></script>
+  </head>
+  <body>
+    <div id="nav-placeholder"></div>
+    <div id="header"></div>
+    <section class="pt-5 pb-5">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-8 offset-md-2 text-center">
+            <h3><span style="color: #f39c12">Covid-19 Update</span></h3>
+
+            <p>&nbsp;</p>
+
+            <p>
+              Bởi vì dịch bệnh vẫn còn diễn biến phức tạp nên các hoạt động dịch
+              vụ trực tiếp sẽ được hoãn lại. Sức khỏe mọi người là ưu tiên hàng
+              đầu, cho nên liên hệ từ xa sẽ là giải pháp tốt nhất. Chúng tôi tự
+              tin sẽ cung cấp dịch vụ với chất lượng tốt nhất. Bạn có thể điền
+              thông tin liên lạc hoặc chủ động kết nối với chúng tôi với những
+              mạng xã hội ở footnote.
+            </p>
+
+            <p>&nbsp;</p>
+
+            <p>&nbsp;</p>
+
+            <h3 style="color: #f39c12">Thông tin liên lạc</h3>
+            <p>&nbsp;</p>
+            <p>
+              Hãy điền thông tin cá nhân của bạn, để chúng tôi có thể liên lạc
+              với bạn.
+            </p>
+            <p>Chúng tôi cam kết nó sẽ được bảo mật.</p>
+          </div>
+          <p>&nbsp;</p>
+        </div>
+        <div class="row justify-content-md-center">
+          <div class="col-md-8">
+            <form>
+              <div class="form-group">
+                <label for="name">Tên của bạn</label>
+                <input
+                  type="text"
+                  class="form-control"
+                  id="name"
+                  aria-describedby="emailHelp"
+                  placeholder="Enter name"
+                />
+              </div>
+              <div class="form-group">
+                <label for="email">Email</label>
+                <input
+                  type="email"
+                  class="form-control"
+                  id="email"
+                  aria-describedby="emailHelp"
+                  placeholder="Enter email"
+                />
+              </div>
+              <div class="form-group">
+                <label for="about">Chúng tôi có thể giúp gì?</label>
+                <textarea class="form-control" id="about" rows="3"></textarea>
+              </div>
+              <small id="emailHelp" class="form-text text-muted"
+                >Tên và email của bạn sẽ được bảo mật.</small
+              >
+              <button type="submit" class="btn btn-primary" id="submit">
+                Xác nhận
+              </button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </section>
+    <div id="footer"></div>
+    <script>
+      $(document).ready(function () {
+        // load and change active navbar
+        $("#nav-placeholder").load("./html/nav.html", function () {
+          $(".nav-link").each(function () {
+            if ($(this).html() == "Liên hệ") $(this).addClass("active");
+            else $(this).removeClass("active");
+          });
+        });
+        // load header
+        $("#header").load("./html/header.html", function () {
+          $("#header-title").html("PHƯƠNG THỨC LIÊN LẠC");
+        });
+        // load footer
+        $("#footer").load("./html/footer.html");
+        function validateEmail(email) {
+          const re =
+            /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+          return re.test(String(email).toLowerCase());
+        }
+        $("#submit").on("click", function () {
+          if (validateEmail($("#email").val())) {
+            $.get(
+              "./people/user/form.php",
+              {
+                name: $("#name").val(),
+                email: $("#email").val(),
+                about: $("#about").val(),
+              },
+              function (data) {
+                console.log(data);
+              }
+            );
+            alert("Yêu cầu của bạn đã được gửi!");
+          }
+        });
+      });
+    </script>
+  </body>
+</html>
