@@ -5,7 +5,7 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>phan2_bai2</title>
+  <title>Quản lý tin tức</title>
   <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css" />
   <link rel="stylesheet" href="../style.css" />
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
@@ -96,7 +96,7 @@
       }
 
       $('#back').on('click', function() {
-        window.location.href = 'http://localhost/BTL/admin';
+        window.history.back();
       })
       $(document).on("click", '.add', function() {
         $("#displaymessage").empty();
@@ -189,11 +189,11 @@
 <body>
   <div class="container-fluid back-ground">
     <div class="head">
-      <h1>Danh sách khách hàng</h1>
+      <h1>Danh sách tin tức</h1>
     </div>
     <div class="row">
       <div class="col-md-3 col-sm-4 col-6" style="padding-bottom: 20px;">
-        <button type="button" class="btn btn-info btn-block btn-sm add-new">Thêm tài khoản</button>
+        <button type="button" class="btn btn-info btn-block btn-sm add-new">Thêm tin tức</button>
       </div>
       <div class="col-md-3 col-sm-4 col-6" style="padding-bottom: 20px;">
         <button type="button" class="btn btn-info btn-block btn-sm" id="back">Trang quản lý</button>
@@ -201,6 +201,14 @@
     </div>
     <div class="row table-responsive-sm">
       <table class="table table-bordered table-sm">
+        <colgroup>
+          <col class="col-md-1">
+          <col class="col-md-2">
+          <col class="col-md-2">
+          <col class="col-md-2">
+          <col class="col-md-3">
+          <col class="col-md-2">
+        </colgroup>
         <thead class="thead-dark">
           <tr>
             <th>ID</th>
@@ -213,7 +221,7 @@
         </thead>
         <tbody>
           <?php
-          include $_SERVER['DOCUMENT_ROOT'] . 'BTL/php/conn.php';
+          include $_SERVER['DOCUMENT_ROOT'] . '/BTL/php/conn.php';
           $sql = "SELECT * FROM news";
           $result = mysqli_query($con, $sql);
           while ($row = mysqli_fetch_assoc($result)) {

@@ -1,21 +1,45 @@
 <script>
-  function delete_product(id_book, price, many) {
+  function delete_product(id_book, price) {
+    var many;
     $.get(
       "./people/user/delete.php",
       {
         id_book: id_book,
       },
       function (data) {
+        many = data.slice(0, data.indexOf("S"));
+        var total = Number(price) * Number(many);
+        var before = $(".cart-total-price").text();
+        var i = before.indexOf(".");
+        var change = Number(before.slice(0, i)) - total;
+        $(".cart-total-price").text(change + ".000đ");
+      }
+    );
+    var button_remove = event.target;
+    button_remove.parentElement.parentElement.remove();
+  }
+
+  function change_product(id_book, price, many) {
+    $.get(
+      "./people/user/change_many.php",
+      {
+        id_book: id_book,
+        many: many,
+      },
+      function (data) {
         console.log(data);
       }
     );
-    var total = Number(price) * Number(many);
-    var before = $(".cart-total-price").text();
-    var i = before.indexOf(".");
-    var change = Number(before.slice(0, i)) - total;
-    $(".cart-total-price").text(change + ".000đ");
-    var button_remove = event.target;
-    button_remove.parentElement.parentElement.remove();
+    total = 0;
+    $(".input").each(function () {
+      var price = $(this).find(".cart-price").text();
+      price = price.slice(0, price.indexOf("."));
+      many = $(this).find(".number").val();
+      if (many != 0) {
+        total += Number(price) * Number(many);
+      }
+    });
+    $(".cart-total-price").text(total + ".000đ");
   }
 </script>
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top pt-0">
@@ -211,7 +235,8 @@
         var total = data.slice(data.lastIndexOf(">") + 1, data.length);
         var product = data.slice(0, data.lastIndexOf(">"));
         $("#modal-product").html(product);
-        $(".cart-total-price").text(total + ".  000đ");
+        $(".cart-total-price").text(total + ".000đ");
+        before = $(".cart-total-price").text();
       });
     });
   });

@@ -1,5 +1,5 @@
 <?php
-include $_SERVER['DOCUMENT_ROOT'] . 'BTL/php/conn.php';
+include $_SERVER['DOCUMENT_ROOT'] . '/BTL/php/conn.php';
 if ($_SERVER["REQUEST_METHOD"] == "GET") {
     $id = test_input($_GET["id"]);
     $link = test_input($_GET["link"]);

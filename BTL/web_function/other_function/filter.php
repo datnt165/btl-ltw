@@ -1,5 +1,5 @@
 <?php
-include $_SERVER['DOCUMENT_ROOT'] . 'BTL/php/conn.php';
+include $_SERVER['DOCUMENT_ROOT'] . '/BTL/php/conn.php';
 if ($_SERVER["REQUEST_METHOD"] == "GET") {
     $cur_page = $_GET['cur_page'];
     $type = $_GET['type'];

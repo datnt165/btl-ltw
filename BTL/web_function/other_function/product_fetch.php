@@ -1,5 +1,5 @@
 <?php
-include $_SERVER['DOCUMENT_ROOT'] . 'BTL/php/conn.php';
+include $_SERVER['DOCUMENT_ROOT'] . '/BTL/php/conn.php';
 if ($_SERVER["REQUEST_METHOD"] == "GET") {
 
   if (array_key_exists('cur_page', $_GET)) {
@@ -57,15 +57,14 @@ if ($_SERVER["REQUEST_METHOD"] == "GET") {
   if (array_key_exists('search', $_GET)) {
     $output = '1';
     $search = $_GET['search'];
-    $sql = "SELECT * FROM books  WHERE name = '$search'";
+    $sql = "SELECT * FROM books  WHERE name like '%$search%' || author like '%$search%'";
     $result = mysqli_query($con, $sql);
-    $row = mysqli_fetch_assoc($result);
-    $id = $row['id'];
-    $name = $row['name'];
-    $img = $row['img'];
-    $price = $row['price'] . '.000 đ';
     // $content = $row['content'];
-    if ($row) {
+    while ($row = mysqli_fetch_assoc($result)) {
+      $id = $row['id'];
+      $name = $row['name'];
+      $img = $row['img'];
+      $price = $row['price'] . '.000 đ';
       $output .=     '<div class="col-md-3 col-sm-6 col-6" style="border: 2px solid #e5e5e5; border-left:0">
         <div class="item">
           <div class="img-big">
@@ -74,7 +73,7 @@ if ($_SERVER["REQUEST_METHOD"] == "GET") {
               title="' . $name . '"
             >
               <img
-                src="img/product/' . $img . '"
+                src="' . $img . '"
                 alt="' . $name . '"
                 class="img-responsive"
               />

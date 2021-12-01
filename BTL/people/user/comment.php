@@ -1,5 +1,5 @@
 <?php
-include $_SERVER['DOCUMENT_ROOT'] . 'BTL/php/conn.php';
+include $_SERVER['DOCUMENT_ROOT'] . '/BTL/php/conn.php';
 if ($_SERVER["REQUEST_METHOD"] == "GET") {
     $email = $_COOKIE['email'];
     $id_book = $_GET['id_book'];

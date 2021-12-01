@@ -9,12 +9,12 @@
   <link rel="stylesheet" href="style.css" />
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 
-  <title>phan1_bai6</title>
+  <title>Thông tin khách hàng</title>
 </head>
 
 <body>
   <?php
-  include $_SERVER['DOCUMENT_ROOT'] . 'BTL/php/conn.php';
+  include $_SERVER['DOCUMENT_ROOT'] . '/BTL/php/conn.php';
   $cookie_name = "email";
   $fname = $lname = $birth = $gender = $country = $type = '';
   if ($email = $_COOKIE[$cookie_name]) {

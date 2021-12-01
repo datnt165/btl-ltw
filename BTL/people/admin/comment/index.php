@@ -5,7 +5,7 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>phan2_bai2</title>
+  <title>Quản lý bình luận</title>
   <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css" />
   <link rel="stylesheet" href="../style.css" />
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
@@ -25,7 +25,7 @@
 
 
       $('#back').on('click', function() {
-        window.location.href = 'http://localhost/BTL/admin';
+        window.history.back();
       })
     });
   </script>
@@ -34,7 +34,7 @@
 <body>
   <div class="container-fluid back-ground">
     <div class="head">
-      <h1>Danh sách khách hàng bình luận</h1>
+      <h1>Khách hàng bình luận</h1>
     </div>
     <div class="row">
       <div class="col-md-3 col-sm-4 col-6" style="padding-bottom: 20px;">
@@ -54,7 +54,7 @@
         </thead>
         <tbody>
           <?php
-          include $_SERVER['DOCUMENT_ROOT'] . 'BTL/php/conn.php';
+          include $_SERVER['DOCUMENT_ROOT'] . '/BTL/php/conn.php';
           $sql = "SELECT * FROM comment";
           $result = mysqli_query($con, $sql);
           while ($row = mysqli_fetch_assoc($result)) {

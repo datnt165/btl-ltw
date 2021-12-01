@@ -5,7 +5,7 @@
   <meta charset="UTF-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Document</title>
+  <title>Chi tiết</title>
   <link rel="stylesheet" href="./style.css" />
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" />
   <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
@@ -18,7 +18,7 @@
 
 <body>
   <?php
-  include $_SERVER['DOCUMENT_ROOT'] . 'BTL/php/conn.php';
+  include $_SERVER['DOCUMENT_ROOT'] . '/BTL/php/conn.php';
   error_reporting(E_ALL & ~E_NOTICE);
   if ($_SERVER["REQUEST_METHOD"] == "GET") {
     $id = $_GET['id'];
@@ -102,7 +102,7 @@
                 <td scope="row" style="background: rgb(239, 239, 239)">
                   Tác giả
                 </td>
-                <td style="background: rgb(220, 239, 239)"><?php echo $author; ?></td>
+                <td style="background: rgb(220, 239, 239)"><?php echo $author ?></td>
               </tr>
               <tr>
                 <td scope="row" style="background: rgb(239, 239, 239)">
@@ -218,7 +218,7 @@
     <hr>
 
     <?php
-    if ($$email = $_COOKIE['email']) {
+    if ($email = $_COOKIE['email']) {
       $sql = "SELECT * FROM comment  WHERE id_book = '$id' && email = '$email'";
       $result = mysqli_query($con, $sql);
       $row = mysqli_fetch_assoc($result);

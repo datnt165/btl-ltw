@@ -1,5 +1,5 @@
 <?php
-include $_SERVER['DOCUMENT_ROOT'] . 'BTL/php/conn.php';
+include $_SERVER['DOCUMENT_ROOT'] . '/BTL/php/conn.php';
 if ($_SERVER["REQUEST_METHOD"] == "GET") {
     // $id = $_GET['formObj']['id'];
     $email = $_GET['email'];

@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>phan2_bai2</title>
+    <title>Admin</title>
     <link rel="stylesheet" href="style.css" />
     <link
       href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css"
@@ -27,39 +27,47 @@
       <div class="head">
         <h1>Các tác vụ chính</h1>
       </div>
+      <h3 style="color: white" class="pt-4">Quản lý con người</h3>
       <div class="row py-4 justify-content-center">
-        <div class="col-md-4 col-12">
+        <div class="col-md-4 col-12 col-sm-12">
           <button type="button" class="btn btn-primary btn-block" id="member">
             Quản lý thành viên
           </button>
         </div>
-        <div class="col-md-4 col-12">
+        <div class="col-md-4 col-12 col-sm-12">
           <button type="button" class="btn btn-primary btn-block" id="comment">
             Quản lý bình luận đánh giá
           </button>
         </div>
       </div>
+      <h3 style="color: white">Quản lý sản phẩm, tin tức</h3>
       <div class="row py-4 justify-content-center">
-        <div class="col-md-4 col-12">
+        <div class="col-md-4 col-12 col-sm-12">
           <button type="button" class="btn btn-primary btn-block" id="book">
             Quản lý sản phẩm
           </button>
         </div>
-        <div class="col-md-4 col-12">
+        <div class="col-md-4 col-12 col-sm-12">
           <button type="button" class="btn btn-primary btn-block" id="news">
             Quản lý tin tức
           </button>
         </div>
       </div>
+      <h3 style="color: white">Quản lý khác</h3>
       <div class="row py-4 justify-content-center">
-        <div class="col-md-4 col-12">
+        <div class="col-md-4 col-12 col-sm-12">
           <button type="button" class="btn btn-primary btn-block" id="contact">
             Quản lý thông tin liên hệ
           </button>
         </div>
-        <div class="col-md-4 col-12">
+        <div class="col-md-4 col-12 col-sm-12">
           <button type="button" class="btn btn-primary btn-block" id="customer">
-            Thông tin khách hàng tiềm năng
+            Ý kiến khách hàng
+          </button>
+        </div>
+        <div class="col-md-4 col-12 col-sm-12">
+          <button type="button" class="btn btn-primary btn-block" id="cart">
+            Thông tin đơn hàng
           </button>
         </div>
       </div>
@@ -85,6 +93,9 @@
       });
       $("#customer").on("click", function () {
         window.location.href = "http://localhost/BTL/people/admin/customer/";
+      });
+      $("#cart").on("click", function () {
+        window.location.href = "http://localhost/BTL/people/admin/cart/";
       });
     </script>
   </body>
