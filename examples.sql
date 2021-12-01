@@ -3,9 +3,12 @@
 -- https://www.phpmyadmin.net/
 --
 -- Máy chủ: 127.0.0.1
--- Thời gian đã tạo: Th10 26, 2021 lúc 07:08 AM
+-- Thời gian đã tạo: Th12 01, 2021 lúc 04:39 AM
 -- Phiên bản máy phục vụ: 10.4.21-MariaDB
 -- Phiên bản PHP: 7.3.31
+
+CREATE DATABASE `examples`;
+USE `examples`;
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -64,33 +67,9 @@ INSERT INTO `books` (`id`, `name`, `author`, `price`, `page`, `lang`, `type`, `i
 (19, 'Lagom - Vừa Đủ - Đẳng Cấp Sống Của Người Thụy Điển', 'Linnea Dunne', 77, 160, 'Việt', 'Tâm lý, tâm linh, tôn giáo', 'img/product/vđc.png'),
 (20, 'Wabi Sabi Thương Những Điều Không Hoàn Hảo', 'Marie Tourell Söderberg', 95, 214, 'Việt', 'Tâm lý, tâm linh, tôn giáo', 'img/product/wbsb.png'),
 (21, 'Sức Mạnh Của Ngôn Từ', 'Don Gabor', 74, 312, 'Việt', 'Văn hóa xã hội – Lịch sử', 'img/product/smnt.png'),
-(22, 'Mật Mã Tài Năng', 'Don Gabor', 117, 348, 'Việt', 'Văn hóa xã hội – Lịch sử', 'img/product/mmtn.png');
-
--- --------------------------------------------------------
-
---
--- Cấu trúc bảng cho bảng `cars`
---
-
-CREATE TABLE `cars` (
-  `id` int(11) NOT NULL,
-  `name` varchar(40) DEFAULT NULL,
-  `year` varchar(50) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-
---
--- Đang đổ dữ liệu cho bảng `cars`
---
-
-INSERT INTO `cars` (`id`, `name`, `year`) VALUES
-(4, 'dat23', '2004'),
-(5, 'dat1', '2009'),
-(6, 'dat', '2006'),
-(7, '19595959 ', '2008'),
-(13, '19595959 ', '2008'),
-(14, '19595959 ', '2008'),
-(15, '19595959', '2008'),
-(18, '1959595 ', '2008');
+(22, 'Mật Mã Tài Năng', 'Don Gabor', 117, 348, 'Việt', 'Văn hóa xã hội – Lịch sử', 'img/product/mmtn.png'),
+(23, 'Mật Mã Tài Năng', 'Don Gabor', 117, 348, 'Việt', 'Văn hóa xã hội – Lịch sử', 'img/product/mmtn.png'),
+(24, 'Mật Mã Tài Năng', 'Don Gabor', 117, 348, 'Việt', 'Văn hóa xã hội – Lịch sử', 'img/product/mmtn.png');
 
 -- --------------------------------------------------------
 
@@ -110,7 +89,10 @@ CREATE TABLE `cart` (
 --
 
 INSERT INTO `cart` (`id`, `id_book`, `email`, `many`) VALUES
-(35, 21, 'dat', 1);
+(100, 14, 'dat@gmail.com', 3),
+(101, 21, 'dat1@gmail.com', 3),
+(103, 18, 'admin', 2),
+(104, 3, 'admin', 2);
 
 -- --------------------------------------------------------
 
@@ -133,8 +115,11 @@ INSERT INTO `comment` (`id`, `email`, `id_book`, `comment`) VALUES
 (2, 'dat1@gmail.com', 17, 'hay!2'),
 (3, 'dat.nguyenthanhdat12@hcmut.edu', 17, 'hay!3'),
 (4, 'dat', 17, 'hay!4'),
-(5, 'dat1@gmail.com', 21, 'dsaf'),
-(6, 'dat', 21, 'á4d5a64f6a5f');
+(5, 'dat1@gmail.com', 21, '1. hay'),
+(6, 'dat', 21, '2. hay'),
+(7, 'dat1@gmail.com', 22, 'Sách rất hay !!!'),
+(8, 'protosmouse1@gmail.com', 22, 'Phù hợp!'),
+(9, 'dat@gmail.com', 14, 'Khá hay');
 
 -- --------------------------------------------------------
 
@@ -178,7 +163,8 @@ CREATE TABLE `customer` (
 --
 
 INSERT INTO `customer` (`id`, `name`, `email`, `about`) VALUES
-(2, 'đá', '1@gmail.com', 'af');
+(3, 'dat', 'dat@gmail.com', 'Hello tôi là đạt'),
+(4, 'dat11', 'dat111@gmail.com', 'sửa chi tiết');
 
 -- --------------------------------------------------------
 
@@ -238,8 +224,7 @@ CREATE TABLE `user` (
 --
 
 INSERT INTO `user` (`id`, `fn`, `ln`, `email`, `password`, `birth`, `gender`, `country`, `type`) VALUES
-(1, 'dat1123', 'dat', 'dat', 'dat1231', '2020-11-02', 'Nam', 'Việt Nam', 'Khách hàng'),
-(2, 'dat', 'dat', 'dat@gmail.com', 'dat', '2001-05-16', 'Nam', 'Việt Nam', 'Khách hàng'),
+(2, 'Nguyễn', 'Văn A', 'dat@gmail.com', 'dat1', '2001-05-12', 'Nữ', 'Việt Nam', 'Khách hàng'),
 (3, 'dat', 'dat', 'dat1@gmail.com', 'dat1', '1991-01-20', 'Khác', 'Việt Nam', 'Khách hàng'),
 (4, 'Nguyễn', 'Thành Đạt', 'protosmouse1@gmail.com', 'dat1212', '2001-05-16', 'Nam', 'Việt Nam', 'Khách hàng'),
 (5, 'admin', 'admin', 'admin', '1', '2001-01-01', 'Khác', 'None', 'Admin');
@@ -253,13 +238,6 @@ INSERT INTO `user` (`id`, `fn`, `ln`, `email`, `password`, `birth`, `gender`, `c
 --
 ALTER TABLE `books`
   ADD PRIMARY KEY (`id`);
-
---
--- Chỉ mục cho bảng `cars`
---
-ALTER TABLE `cars`
-  ADD PRIMARY KEY (`id`),
-  ADD UNIQUE KEY `id` (`id`);
 
 --
 -- Chỉ mục cho bảng `cart`
@@ -305,19 +283,19 @@ ALTER TABLE `user`
 -- AUTO_INCREMENT cho bảng `books`
 --
 ALTER TABLE `books`
-  MODIFY `id` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=23;
+  MODIFY `id` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=26;
 
 --
 -- AUTO_INCREMENT cho bảng `cart`
 --
 ALTER TABLE `cart`
-  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=36;
+  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=105;
 
 --
 -- AUTO_INCREMENT cho bảng `comment`
 --
 ALTER TABLE `comment`
-  MODIFY `id` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `id` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 
 --
 -- AUTO_INCREMENT cho bảng `contact`
@@ -329,7 +307,7 @@ ALTER TABLE `contact`
 -- AUTO_INCREMENT cho bảng `customer`
 --
 ALTER TABLE `customer`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT cho bảng `news`
