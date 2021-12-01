@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Máy chủ: 127.0.0.1
--- Thời gian đã tạo: Th12 01, 2021 lúc 04:39 AM
+-- Thời gian đã tạo: Th12 01, 2021 lúc 08:43 AM
 -- Phiên bản máy phục vụ: 10.4.21-MariaDB
 -- Phiên bản PHP: 7.3.31
 
@@ -64,12 +64,10 @@ INSERT INTO `books` (`id`, `name`, `author`, `price`, `page`, `lang`, `type`, `i
 (16, 'Sách thiếu nhi - Theo Dòng Thời Gian - Thời Tiền Sử', 'Nhóm tác giả', 87, 40, 'Việt', 'Truyện, tiểu thuyết', 'img/product/stn.png'),
 (17, 'Đi Tìm Lẽ Sống', 'Viktor Emil Frankl', 62, 224, 'Việt', 'Truyện, tiểu thuyết', 'img/product/dtls.png'),
 (18, 'Karl Lagerfeld - Cuộc Đời, Sự Nghiệp Và Những Bí Mật Kiến Tạo Một Thiên Tài', 'Viktor Emil Frankl', 106, 150, 'Việt', 'Văn hóa xã hội – Lịch sử', 'img/product/cdsn.png'),
-(19, 'Lagom - Vừa Đủ - Đẳng Cấp Sống Của Người Thụy Điển', 'Linnea Dunne', 77, 160, 'Việt', 'Tâm lý, tâm linh, tôn giáo', 'img/product/vdc.png'),
+(19, 'Lagom - Vừa Đủ - Đẳng Cấp Sống Của Người Thụy Điển', 'Linnea Dunne', 77, 160, 'Việt', 'Tâm lý, tâm linh, tôn giáo', 'img/product/vđc.png'),
 (20, 'Wabi Sabi Thương Những Điều Không Hoàn Hảo', 'Marie Tourell Söderberg', 95, 214, 'Việt', 'Tâm lý, tâm linh, tôn giáo', 'img/product/wbsb.png'),
 (21, 'Sức Mạnh Của Ngôn Từ', 'Don Gabor', 74, 312, 'Việt', 'Văn hóa xã hội – Lịch sử', 'img/product/smnt.png'),
-(22, 'Mật Mã Tài Năng', 'Don Gabor', 117, 348, 'Việt', 'Văn hóa xã hội – Lịch sử', 'img/product/mmtn.png'),
-(23, 'Mật Mã Tài Năng', 'Don Gabor', 117, 348, 'Việt', 'Văn hóa xã hội – Lịch sử', 'img/product/mmtn.png'),
-(24, 'Mật Mã Tài Năng', 'Don Gabor', 117, 348, 'Việt', 'Văn hóa xã hội – Lịch sử', 'img/product/mmtn.png');
+(22, 'Mật Mã Tài Năng', 'Don Gabor', 117, 348, 'Việt', 'Văn hóa xã hội – Lịch sử', 'img/product/mmtn.png');
 
 -- --------------------------------------------------------
 
